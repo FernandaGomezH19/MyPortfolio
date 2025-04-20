@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Header Responsive</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+    }
+
+    header {
+      background-color: #000;
+      color: #00bfff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #00bfff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #1e90ff;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #00bfff;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #000;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 0;
+        display: none;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">[LOGO]</div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav">
+    <a href="#inicio">Inicio</a>
+    <a href="#about">About Me</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('nav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
